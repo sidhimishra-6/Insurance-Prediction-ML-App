@@ -13,7 +13,7 @@ import streamlit as st
 
 # Web Page Code
 st.title("HEALTH INSURANCE PREDICTION")
-img_url = "https://1finance.co.in/blog/the-benefits-of-health-insurance-why-its-essential-for-financial-security-in-india/"
+img_url = "https://www.google.com/imgres?q=health%20insurance&imgurl=https%3A%2F%2Fwww.squareinsurance.in%2F_next%2Fimage%3Furl%3Dhttps%253A%252F%252Fsquare-web-new.s3.ap-south-1.amazonaws.com%252FWebsiteSection%252FBlogs%252FHealth%2520Insurance%252FHealth%2520Insurance1706506385Main-Menu.webp%26w%3D1920%26q%3D75&imgrefurl=https%3A%2F%2Fwww.squareinsurance.in%2Fblog%2Fhealth-insurance-news%2Fwhat-is-individual-health-insurance&docid=kESLBjPlcIRZIM&tbnid=gjLkUsWYv2IdmM&vet=12ahUKEwj18t2FqPCWAxUHe2wGHRFqAu4QnPAOegUImwEQAA..i&w=1920&h=1029&hcb=2&ved=2ahUKEwj18t2FqPCWAxUHe2wGHRFqAu4QnPAOegUImwEQAA"
 st.image(img_url)
 
 # LOAD DATA and ML MODEL PART
