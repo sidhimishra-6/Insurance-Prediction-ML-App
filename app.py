@@ -13,7 +13,7 @@ import streamlit as st
 
 # Web Page Code
 st.title("HEALTH INSURANCE PREDICTION")
-img_url = "https://www.squareinsurance.in/blog/health-insurance-news/what-is-individual-health-insurance"
+img_url = "https://www.fincash.com/l/insurance/family-health-insurance"
 st.image(img_url)
 
 # LOAD DATA and ML MODEL PART
