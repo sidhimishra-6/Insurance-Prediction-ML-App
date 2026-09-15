@@ -13,7 +13,7 @@ import streamlit as st
 
 # Web Page Code
 st.title("HEALTH INSURANCE PREDICTION")
-img_url = "https://cdn.zeebiz.com/sites/default/files/2026/03/09/401943-health-insurance.png"
+img_url = "https://1finance.co.in/blog/the-benefits-of-health-insurance-why-its-essential-for-financial-security-in-india/"
 st.image(img_url)
 
 # LOAD DATA and ML MODEL PART
