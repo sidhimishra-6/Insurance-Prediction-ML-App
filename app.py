@@ -13,53 +13,63 @@ import streamlit as st
 
 # Web Page Code
 st.title("HEALTH INSURANCE PREDICTION")
-img_url = "https://1finance.co.in/blog/the-benefits-of-health-insurance-why-its-essential-for-financial-security-in-india/"
+img_url = "https://cdn.zeebiz.com/sites/default/files/2026/03/09/401943-health-insurance.png"
 st.image(img_url)
 
-#LOAD DATA and ML MODEL PART
+# LOAD DATA and ML MODEL PART
 
-# Step 2: Load Insurance Data
+# Step 2: load Insurance data
 url = "https://raw.githubusercontent.com/ankitmisk/UIT-data/refs/heads/main/Insurance.csv"
 df = pd.read_csv(url)
 
-# Step 3: EDA: Exporatory Data Analysis
+# Step 3: EDA: Exploratory Data Analysis
 df.drop("Customer_ID", axis = 1, inplace = True)
+
 df['Previous_Insurance'] = df['Previous_Insurance'].map({'No':0,"Yes":1})
 df['Insurance_Bought'] = df['Insurance_Bought'].map({'No':0,"Yes":1})
+
 
 # Step 4: Divide dataset into features and target
 X = df.iloc[:,:-1]
 y = df.iloc[:,-1]
 
-# Step 5: Divide data into Training & Testing part
+# Step 5: Divide data into Training & testing part
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=42, test_size=0.3)
 
-# Step 6: Train Model
+# Step  6: Train Model
 model = LogisticRegression()
-model.fit(X_train, y_train)
+model.fit(X_train,y_train)
 
-# Show data sample
+
+
+# show data sample
 st.write(df.head())
-# Create side bar for user input form 
+# Create Side bar for user input form
 st.sidebar.title("Fill Customer Details")
 st.sidebar.image(img_url)
 
+
+# To get user input
+all_ans = []
 for index, col_name in enumerate(X.columns):
   min_v = X[col_name].min()
   max_v = X[col_name].max()
   if col_name != "Previous_Insurance":
     value = st.sidebar.slider(f"Select value for {col_name}",
-                              min_value = min_v,
-                              max_value = max_v)
+                             min_value = min_v,
+                             max_value = max_v)
   else:
-    value = st.sidebar.number_input("Select value for {col_name} (0:No, 1:Yes):")
+    value = st.sidebar.number_input(f"Select value for {col_name} (0:No, 1: yes): ")
+
   all_ans.append(value)
+
 ud = {j:all_ans[i] for i,j in enumerate(X.columns)}
-user_df = pd.DataFrame(ud, index =[1])
+user_df = pd.DataFrame(ud, index = [1])
 st.write(user_df)
-#==========================Prediction=========================
-if st.button("Click to Predict:"):
+
+#=========================Prediction==============
+if st.button("Click to Predict: "):
   with st.spinner("Predicting.."):
     import time
     time.sleep(2)
@@ -70,3 +80,5 @@ if st.button("Click to Predict:"):
     st.success("✅Customer will buy the Insurance✅")
 
 
+# changes 1: dict
+# changes 2: model predict
